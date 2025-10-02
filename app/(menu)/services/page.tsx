@@ -1,23 +1,21 @@
 "use client";
+
 import Image from "next/image";
-import {
-  Bell,
-  SlidersHorizontal,
-  Heart,
-  Home,
-  Calendar,
-  Search,
-  User2,
-  ArrowBigRight,
-  ArrowRight,
-} from "lucide-react";
+import { Bell, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { categories, services, topBookedServices } from "@/constants/services";
 import Link from "next/link";
-import BottomNav from "@/components/bottom-nav";
-import { Category } from "@/definitions/services";
+import { categories, services, topBookedServices } from "@/constants/services";
+import { Category, Service } from "@/definitions/services";
+import { useState } from "react";
 
 export default function HomePage() {
+  const [activeCategory, setActiveCategory] = useState("Hairstyling");
+
+  const filteredServices =
+    activeCategory === "All"
+      ? services
+      : services.filter((s: Service) => s.category === activeCategory);
+
   return (
     <div className="px-4 pt-6 pb-20 overflow-y-auto h-full">
       {/* Header */}
@@ -34,7 +32,7 @@ export default function HomePage() {
               />
             </div>
             <div>
-              <p className="text-gray-500 text-sm">Hello smith</p>
+              <p className="text-gray-500 text-sm">Hello Smith</p>
               <p className="font-bold text-lg">Good morning!</p>
             </div>
           </div>
@@ -45,69 +43,62 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Search */}
-      {/* <div className="flex items-center mt-6 space-x-2">
-            <div className="flex flex-1 items-center bg-white rounded-full px-4 py-2 shadow-sm">
-              <Search className="w-5 h-5 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search..."
-                className="ml-2 flex-1 bg-transparent outline-none text-sm"
-              />
-            </div>
-            <div className="p-3 bg-white rounded-full shadow-sm">
-              <SlidersHorizontal className="w-5 h-5 text-gray-600" />
-            </div>
-          </div> */}
-
       {/* Categories */}
-      <div className="flex space-x-4 overflow-x-auto mt-16 pb-2">
+      <div className="flex space-x-4 overflow-x-auto mt-16 pb-2 no-scrollbar">
         {categories.map((c: Category) => (
-          <motion.div
+          <motion.button
             key={c.id}
-            whileTap={{ scale: 0.98 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setActiveCategory(c.name)}
             className={`flex flex-col items-center ${
-              c.isActive ? "bg-yellow-400" : "bg-white shadow-sm"
+              activeCategory === c.name ? "bg-yellow-400" : "bg-white shadow-sm"
             } rounded-2xl p-3 w-20 flex-shrink-0`}
           >
             <Image
-              src={c.image.startsWith("http") ? c.image : c.image}
+              src={c.image}
               alt={c.name}
               width={40}
               height={40}
               className="rounded-full"
             />
-            <p className="text-xs mt-2 font-medium">{c.name}</p>
-          </motion.div>
+            <p
+              className={`text-xs mt-2 font-medium ${
+                activeCategory === c.name ? "text-white" : "text-gray-700"
+              }`}
+            >
+              {c.name}
+            </p>
+          </motion.button>
         ))}
       </div>
 
-      {/* Offers */}
+      {/* Services */}
       <div className="flex items-center justify-between mt-6">
-        <h2 className="text-lg font-bold">Hairstyling</h2>
+        <h2 className="text-lg font-bold">
+          {activeCategory === "All" ? "All Services" : activeCategory}
+        </h2>
         <Link href="/book" className="text-sm text-yellow-600 font-medium">
           See all
         </Link>
       </div>
 
       <div className="mt-3 grid grid-cols-2 gap-3">
-        {services.map((s) => (
+        {filteredServices.map((s) => (
           <Link key={s.id} href={`/services/${s.id}`}>
             <motion.div
-              key={s.id}
               whileTap={{ scale: 0.98 }}
               className="bg-white rounded-2xl shadow p-3"
             >
               <div className="rounded-xl overflow-hidden h-36">
                 <Image
-                  src={s.image.startsWith("http") ? s.image : s.image}
+                  src={s.image}
                   alt={s.name}
                   width={400}
                   height={300}
                   className="object-cover w-full h-full"
                 />
               </div>
-              <div className="mt-3 flex flex-1 items-center justify-between">
+              <div className="mt-3 flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium">{s.artist}</p>
                   <p className="text-sm text-gray-600">{s.price}</p>
@@ -121,6 +112,7 @@ export default function HomePage() {
         ))}
       </div>
 
+      {/* Top Booked */}
       <div className="mt-8">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-bold">Top Booked Services</h2>
@@ -131,7 +123,7 @@ export default function HomePage() {
             See all
           </Link>
         </div>
-        <div className="flex space-x-4 overflow-x-auto pb-2">
+        <div className="flex space-x-4 overflow-x-auto pb-2 no-scrollbar">
           {topBookedServices.map((s) => (
             <motion.div
               key={s.id}
@@ -140,14 +132,14 @@ export default function HomePage() {
             >
               <div className="rounded-xl overflow-hidden h-36">
                 <Image
-                  src={s.image.startsWith("http") ? s.image : s.image}
+                  src={s.image}
                   alt={s.name}
                   width={400}
                   height={300}
                   className="object-cover w-full h-full"
                 />
               </div>
-              <div className="mt-3 flex flex-1 items-center justify-between">
+              <div className="mt-3 flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium">{s.name}</p>
                   <p className="text-sm text-gray-600">{s.price}</p>
@@ -158,46 +150,6 @@ export default function HomePage() {
               </div>
             </motion.div>
           ))}
-        </div>
-      </div>
-
-      {/* Offers */}
-      {/* <div className="flex items-center justify-between mt-6">
-            <h2 className="text-lg font-bold">Eid offers</h2>
-            <button className="text-sm text-yellow-600 font-medium">
-              See all
-            </button>
-          </div>
-
-          <div className="bg-yellow-400 rounded-2xl p-4 mt-4 flex items-center justify-between">
-            <div>
-              <p className="text-sm">Haircut</p>
-              <p className="text-2xl font-bold">30% Free</p>
-              <p className="text-xs mt-1">Aug 12 - Aug 27</p>
-              <button className="mt-3 bg-white text-black px-4 py-2 rounded-full text-sm font-medium flex items-center shadow">
-                Get Offer Now
-                <span className="ml-2">→</span>
-              </button>
-            </div>
-            <Image
-              src="/images/hairstyling/good-faces.jpg"
-              alt="Offer"
-              width={100}
-              height={100}
-              className="rounded-xl object-cover"
-            />
-          </div> */}
-
-      {/* Styles */}
-      <div className="bg-white rounded-2xl p-4 mt-6 flex items-center justify-between shadow-sm">
-        <div>
-          <p className="font-semibold">High taper fade</p>
-          <p className="text-sm text-gray-500 mt-1">
-            Nice step 2 taper fade curated for your steeze.
-          </p>
-        </div>
-        <div className="p-2 bg-black rounded-full">
-          <span className="text-white text-lg">→</span>
         </div>
       </div>
     </div>

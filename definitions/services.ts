@@ -5,11 +5,11 @@ export type Service = {
   price: string;
   image: string;
   description: string;
+  category: string;
 };
 
 export type Category = {
   id: number;
   name: string;
   image: string;
-  isActive: boolean;
 };
