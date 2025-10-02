@@ -16,10 +16,33 @@ export default function HomePage() {
       ? services
       : services.filter((s: Service) => s.category === activeCategory);
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 1 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
   return (
-    <div className="px-4 pt-6 pb-20 overflow-y-auto h-full">
+    <motion.div
+      className="px-4 pt-6 pb-20 overflow-y-auto h-full"
+      initial="hidden"
+      animate="show"
+    >
       {/* Header */}
-      <div className="absolute top-0 left-0 right-0 bg-white p-4">
+      <motion.div
+        variants={fadeInUp}
+        className="absolute top-0 left-0 right-0 bg-white p-4"
+      >
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 flex items-center justify-center rounded-full overflow-hidden border border-gray-200">
@@ -41,13 +64,17 @@ export default function HomePage() {
             <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Categories */}
-      <div className="flex space-x-4 overflow-x-auto mt-16 pb-2 no-scrollbar">
+      <motion.div
+        variants={staggerContainer}
+        className="flex space-x-4 overflow-x-auto mt-16 pb-2 no-scrollbar"
+      >
         {categories.map((c: Category) => (
           <motion.button
             key={c.id}
+            variants={fadeInUp}
             whileTap={{ scale: 0.95 }}
             onClick={() => setActiveCategory(c.name)}
             className={`flex flex-col items-center ${
@@ -70,22 +97,28 @@ export default function HomePage() {
             </p>
           </motion.button>
         ))}
-      </div>
+      </motion.div>
 
       {/* Services */}
       <div className="flex items-center justify-between mt-6">
-        <h2 className="text-lg font-bold">
+        <motion.h2 variants={fadeInUp} className="text-lg font-bold">
           {activeCategory === "All" ? "All Services" : activeCategory}
-        </h2>
-        <Link href="/book" className="text-sm text-yellow-600 font-medium">
-          See all
-        </Link>
+        </motion.h2>
+        <motion.div variants={fadeInUp}>
+          <Link href="/book" className="text-sm text-yellow-600 font-medium">
+            See all
+          </Link>
+        </motion.div>
       </div>
 
-      <div className="mt-3 grid grid-cols-2 gap-3">
+      <motion.div
+        variants={staggerContainer}
+        className="mt-3 grid grid-cols-2 gap-3"
+      >
         {filteredServices.map((s) => (
           <Link key={s.id} href={`/services/${s.id}`}>
             <motion.div
+              variants={fadeInUp}
               whileTap={{ scale: 0.98 }}
               className="bg-white rounded-2xl shadow p-3"
             >
@@ -110,10 +143,10 @@ export default function HomePage() {
             </motion.div>
           </Link>
         ))}
-      </div>
+      </motion.div>
 
       {/* Top Booked */}
-      <div className="mt-8">
+      <motion.div variants={fadeInUp} className="mt-8">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-bold">Top Booked Services</h2>
           <Link
@@ -123,10 +156,14 @@ export default function HomePage() {
             See all
           </Link>
         </div>
-        <div className="flex space-x-4 overflow-x-auto pb-2 no-scrollbar">
+        <motion.div
+          variants={staggerContainer}
+          className="flex space-x-4 overflow-x-auto pb-2 no-scrollbar"
+        >
           {topBookedServices.map((s) => (
             <motion.div
               key={s.id}
+              variants={fadeInUp}
               whileTap={{ scale: 0.98 }}
               className="bg-white rounded-2xl shadow p-3 w-46 flex-shrink-0"
             >
@@ -150,8 +187,8 @@ export default function HomePage() {
               </div>
             </motion.div>
           ))}
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 }
