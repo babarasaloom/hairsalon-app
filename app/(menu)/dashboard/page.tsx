@@ -18,19 +18,19 @@ const services = [
     id: 1,
     name: "Men’s Haircut",
     price: "$25",
-    image: "/images/joao-paulo-de-souza-oliveira.jpg",
+    image: "/images/hairstyling/joao-paulo-de-souza-oliveira.jpg",
   },
   {
     id: 2,
     name: "Women’s Haircut",
     price: "$35",
-    image: "/images/justin-essah.jpg",
+    image: "/images/hairstyling/justin-essah.jpg",
   },
   {
     id: 3,
     name: "Beard Trim",
     price: "$15",
-    image: "/images/alexander-mass.jpg",
+    image: "/images/hairstyling/alexander-mass.jpg",
   },
 ];
 
@@ -46,7 +46,7 @@ export default function ClientDashboard() {
             <div className="flex items-center space-x-3">
               <div className="flex justify-center items-center w-10 h-10 rounded-full overflow-hidden border border-gray-200">
                 <Image
-                  src="/images/jessica-felicio.jpg"
+                  src="/images/hairstyling/jessica-felicio.jpg"
                   alt="Profile"
                   width={40}
                   height={40}

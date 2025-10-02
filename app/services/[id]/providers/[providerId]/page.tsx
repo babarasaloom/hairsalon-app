@@ -29,7 +29,7 @@ export default function BookingDetailsPage() {
         {/* Hero Section (background) */}
         <div className="fixed md:absolute top-0 left-0 right-0 h-90 md:h-110 z-0">
           <Image
-            src="/images/jabari-timothy-2.jpg"
+            src="/images/hairstyling/jabari-timothy-2.jpg"
             alt="Barber"
             fill
             className="object-cover"

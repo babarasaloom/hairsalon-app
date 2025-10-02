@@ -4,31 +4,31 @@ export const categories: Category[] = [
   {
     id: 1,
     name: "Hairstyling",
-    image: "/images/dustin-chu.jpg",
+    image: "/images/hairstyling/dustin-chu.jpg",
     isActive: true,
   },
   {
     id: 2,
     name: "Nails",
-    image: "/images/ransford-quaye.jpg",
+    image: "/images/hairstyling/ransford-quaye.jpg",
     isActive: false,
   },
   {
     id: 3,
     name: "Conditioning",
-    image: "/images/houcine-ncib.jpg",
+    image: "/images/hairstyling/houcine-ncib.jpg",
     isActive: false,
   },
   {
     id: 4,
     name: "Extensions",
-    image: "/images/houcine-ncib.jpg",
+    image: "/images/hairstyling/houcine-ncib.jpg",
     isActive: false,
   },
   {
     id: 5,
     name: "Wigs",
-    image: "/images/houcine-ncib.jpg",
+    image: "/images/hairstyling/houcine-ncib.jpg",
     isActive: false,
   },
 ];
@@ -40,7 +40,7 @@ export const services: Service[] = [
     artist: "David Marcomin",
     price: "$49.32",
     description: "",
-    image: "/images/ben-iwara.jpg",
+    image: "/images/hairstyling/ben-iwara.jpg",
   },
   {
     id: 2,
@@ -48,7 +48,7 @@ export const services: Service[] = [
     artist: "Richard Anderson",
     price: "$28.48",
     description: "",
-    image: "/images/airam-dato.jpg",
+    image: "/images/hairstyling/airam-dato.jpg",
   },
   {
     id: 3,
@@ -56,7 +56,7 @@ export const services: Service[] = [
     artist: "David Marcomin",
     price: "$49.32",
     description: "",
-    image: "/images/olivier-rule.jpg",
+    image: "/images/hairstyling/olivier-rule.jpg",
   },
   {
     id: 4,
@@ -64,7 +64,7 @@ export const services: Service[] = [
     artist: "Richard Anderson",
     price: "$28.48",
     description: "",
-    image: "/images/luke-southern.jpg",
+    image: "/images/hairstyling/luke-southern.jpg",
   },
   {
     id: 5,
@@ -72,7 +72,7 @@ export const services: Service[] = [
     artist: "David Marcomin",
     price: "$49.32",
     description: "",
-    image: "/images/gilda-gonzalez.jpg",
+    image: "/images/hairstyling/gilda-gonzalez.jpg",
   },
   {
     id: 6,
@@ -80,7 +80,7 @@ export const services: Service[] = [
     artist: "Richard Anderson",
     price: "$28.48",
     description: "",
-    image: "/images/dwayne-joe.jpg",
+    image: "/images/hairstyling/dwayne-joe.jpg",
   },
 ];
 
@@ -89,18 +89,18 @@ export const topBookedServices = [
     id: 101,
     name: "Men’s Haircut",
     price: "$25",
-    image: "/images/dwayne-joe.jpg",
+    image: "/images/hairstyling/dwayne-joe.jpg",
   },
   {
     id: 102,
     name: "Beard Trim",
     price: "$15",
-    image: "/images/gilda-gonzalez.jpg",
+    image: "/images/hairstyling/gilda-gonzalez.jpg",
   },
   {
     id: 103,
     name: "Hair Coloring",
     price: "$50",
-    image: "/images/luke-southern.jpg",
+    image: "/images/hairstyling/luke-southern.jpg",
   },
 ];

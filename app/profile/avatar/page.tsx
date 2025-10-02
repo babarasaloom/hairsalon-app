@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function AvatarPage() {
-  const [preview, setPreview] = useState("/images/jessica-felicio.jpg");
+  const [preview, setPreview] = useState("/images/hairstyling/jessica-felicio.jpg");
   const [file, setFile] = useState<File | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {

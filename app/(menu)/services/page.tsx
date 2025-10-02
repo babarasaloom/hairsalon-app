@@ -26,7 +26,7 @@ export default function HomePage() {
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 flex items-center justify-center rounded-full overflow-hidden border border-gray-200">
               <Image
-                src="/images/jessica-felicio.jpg"
+                src="/images/hairstyling/jessica-felicio.jpg"
                 alt="Profile"
                 width={40}
                 height={40}
@@ -180,7 +180,7 @@ export default function HomePage() {
               </button>
             </div>
             <Image
-              src="/images/good-faces.jpg"
+              src="/images/hairstyling/good-faces.jpg"
               alt="Offer"
               width={100}
               height={100}

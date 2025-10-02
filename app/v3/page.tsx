@@ -28,7 +28,7 @@ const topArtists = [
     rating: 4.8,
     price: 39,
     reviews: 4,
-    image: "/images/ben-iwara.jpg",
+    image: "/images/hairstyling/ben-iwara.jpg",
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ const topArtists = [
     rating: 3.6,
     price: 27,
     reviews: 2,
-    image: "/images/airam-dato.jpg",
+    image: "/images/hairstyling/airam-dato.jpg",
   },
 ];
 
@@ -95,7 +95,7 @@ function AppScreen() {
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 flex items-center justify-center rounded-full overflow-hidden border border-gray-200">
             <Image
-              src="/images/jessica-felicio.jpg"
+              src="/images/hairstyling/jessica-felicio.jpg"
               alt="Profile"
               width={40}
               height={40}
@@ -163,7 +163,7 @@ function AppScreen() {
           </div>
           <div className="bg-white rounded-2xl shadow-md p-4 flex items-center hover:shadow-lg transition">
             <Image
-              src="/images/dustin-chu.jpg"
+              src="/images/hairstyling/dustin-chu.jpg"
               alt="Waxing Artist"
               width={90}
               height={90}

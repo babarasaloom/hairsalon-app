@@ -14,7 +14,7 @@ const mockUpcoming: Booking[] = [
     time: "11:30 - 12:30",
     price: "$25",
     location: "123 Main Street, Cape Town",
-    image: "/images/joao-paulo-de-souza-oliveira.jpg",
+    image: "/images/hairstyling/joao-paulo-de-souza-oliveira.jpg",
   },
 ];
 
@@ -26,7 +26,7 @@ const mockCancelled: Booking[] = [
     time: "09:00 - 09:30",
     price: "$15",
     location: "123 Main Street, Cape Town",
-    image: "/images/justin-essah.jpg",
+    image: "/images/hairstyling/justin-essah.jpg",
   },
 ];
 
@@ -38,7 +38,7 @@ const mockHistory: Booking[] = [
     time: "14:00 - 15:00",
     price: "$30",
     location: "123 Main Street, Cape Town",
-    image: "/images/alexander-mass.jpg",
+    image: "/images/hairstyling/alexander-mass.jpg",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function AppointmentsListPage() {
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 flex justify-center items-center rounded-full overflow-hidden border border-gray-200">
             <Image
-              src="/images/jessica-felicio.jpg"
+              src="/images/hairstyling/jessica-felicio.jpg"
               alt="Profile"
               width={40}
               height={40}

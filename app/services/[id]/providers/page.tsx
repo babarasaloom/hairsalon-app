@@ -98,7 +98,7 @@ export default function HomePage() {
               </button>
             </div>
             <Image
-              src="/images/good-faces.jpg"
+              src="/images/hairstyling/good-faces.jpg"
               alt="Offer"
               width={100}
               height={100}

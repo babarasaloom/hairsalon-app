@@ -29,7 +29,7 @@ export default function SignupPage() {
         {/* Hero Background */}
         <div className="absolute top-0 left-0 right-0 h-80 md:h-90">
           <Image
-            src="/images/good-faces.jpg" // Replace with your hero image
+            src="/images/hairstyling/good-faces.jpg" // Replace with your hero image
             alt="Signup Hero"
             fill
             className="object-cover"

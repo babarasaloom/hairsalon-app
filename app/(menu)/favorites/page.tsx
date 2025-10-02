@@ -15,7 +15,7 @@ const mockFavorites = {
       artist: "John Doe",
       price: "$20",
       duration: "30 min",
-      image: "/images/joao-paulo-de-souza-oliveira.jpg",
+      image: "/images/hairstyling/joao-paulo-de-souza-oliveira.jpg",
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const mockFavorites = {
       artist: "Sarah Lee",
       price: "$50",
       duration: "1h",
-      image: "/images/justin-essah.jpg",
+      image: "/images/hairstyling/justin-essah.jpg",
     },
   ],
   stylists: [
@@ -31,13 +31,13 @@ const mockFavorites = {
       id: 1,
       name: "Richard Anderson",
       specialty: "Fade Specialist",
-      image: "/images/jessica-felicio.jpg",
+      image: "/images/hairstyling/jessica-felicio.jpg",
     },
     {
       id: 2,
       name: "Maria Gomez",
       specialty: "Coloring Expert",
-      image: "/images/good-faces.jpg",
+      image: "/images/hairstyling/good-faces.jpg",
     },
   ],
 };

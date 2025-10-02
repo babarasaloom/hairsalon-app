@@ -40,7 +40,7 @@ export default function ProfilePage() {
           <div className="flex flex-col items-center mb-8">
             <div className="relative w-28 h-28 rounded-full overflow-hidden border-4 border-yellow-400 shadow">
               <Image
-                src="/images/jessica-felicio.jpg"
+                src="/images/hairstyling/jessica-felicio.jpg"
                 alt="Profile"
                 fill
                 className="object-cover"

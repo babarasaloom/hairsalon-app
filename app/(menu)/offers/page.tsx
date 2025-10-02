@@ -14,7 +14,7 @@ const allOffers = [
     description: "Get a fresh haircut with 20% off this summer season.",
     discount: "20% OFF",
     valid: "Until Oct 30, 2025",
-    image: "/images/joao-paulo-de-souza-oliveira.jpg",
+    image: "/images/hairstyling/joao-paulo-de-souza-oliveira.jpg",
     saved: false,
   },
   {
@@ -24,7 +24,7 @@ const allOffers = [
     description: "Transform your look with vibrant colors at 30% off.",
     discount: "30% OFF",
     valid: "Until Nov 15, 2025",
-    image: "/images/jessica-felicio.jpg",
+    image: "/images/hairstyling/jessica-felicio.jpg",
     saved: true,
   },
   {
@@ -34,7 +34,7 @@ const allOffers = [
     description: "Book a styling session this weekend & save $10.",
     discount: "SAVE $10",
     valid: "Until Oct 20, 2025",
-    image: "/images/good-faces.jpg",
+    image: "/images/hairstyling/good-faces.jpg",
     saved: false,
   },
 ];
@@ -46,21 +46,21 @@ const topServices = [
     name: "Men’s Haircut",
     price: "$20",
     duration: "30 min",
-    image: "/images/jessica-felicio.jpg",
+    image: "/images/hairstyling/jessica-felicio.jpg",
   },
   {
     id: 2,
     name: "Women’s Coloring",
     price: "$45",
     duration: "1 hr",
-    image: "/images/joao-paulo-de-souza-oliveira.jpg",
+    image: "/images/hairstyling/joao-paulo-de-souza-oliveira.jpg",
   },
   {
     id: 3,
     name: "Blow Dry Styling",
     price: "$25",
     duration: "45 min",
-    image: "/images/good-faces.jpg",
+    image: "/images/hairstyling/good-faces.jpg",
   },
 ];
 
@@ -107,7 +107,7 @@ export default function OffersPage() {
             className="relative rounded-3xl overflow-hidden shadow-lg mb-6"
           >
             <Image
-              src="/images/justin-essah.jpg"
+              src="/images/hairstyling/justin-essah.jpg"
               alt="Hero Offer"
               width={400}
               height={200}
