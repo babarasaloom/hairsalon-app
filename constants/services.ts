@@ -18,13 +18,13 @@ export const categories: Category[] = [
   },
   {
     id: 4,
-    name: "Extensions",
+    name: "Installations",
     image: "/images/extensions/extension_20.jpeg",
   },
   {
     id: 5,
     name: "Wigs",
-    image: "/images/wigs/wig_11.jpeg",
+    image: "/images/wigs/wig_1.jpeg",
   },
 ];
 
@@ -197,51 +197,51 @@ export const services: Service[] = [
     category: "Braids",
   },
 
-  // --- Extensions ---
+  // --- Installations ---
   {
     id: 19,
-    name: "Clip-In Extensions",
+    name: "Clip-In Installations",
     artist: "Lily Luxe",
     price: "$150",
     image: "/images/extensions/extension_2.jpeg",
     description: "Quick and easy clip-in extensions for volume.",
-    category: "Extensions",
+    category: "Installations",
   },
   {
     id: 20,
-    name: "Tape-In Extensions",
+    name: "Tape-In Installations",
     artist: "Sophia Glam",
     price: "$180",
     image: "/images/extensions/extension_3.jpeg",
     description: "Seamless tape-in extensions with natural look.",
-    category: "Extensions",
+    category: "Installations",
   },
   {
     id: 21,
-    name: "Sew-In Extensions",
+    name: "Sew-In Installations",
     artist: "Mia Weave",
     price: "$200",
     image: "/images/extensions/extension_4.jpeg",
     description: "Durable sew-in for added length and fullness.",
-    category: "Extensions",
+    category: "Installations",
   },
   {
     id: 22,
-    name: "Fusion Extensions",
+    name: "Fusion Installations",
     artist: "Olivia Elite",
     price: "$250",
     image: "/images/extensions/extension_5.jpeg",
     description: "Premium keratin-bond fusion extensions.",
-    category: "Extensions",
+    category: "Installations",
   },
   {
     id: 23,
-    name: "Micro-Link Extensions",
+    name: "Micro-Link Installations",
     artist: "Emma Links",
     price: "$220",
     image: "/images/extensions/extension_6.jpeg",
     description: "Reusable micro-link extensions with flexibility.",
-    category: "Extensions",
+    category: "Installations",
   },
   {
     id: 24,
@@ -250,7 +250,7 @@ export const services: Service[] = [
     price: "$80",
     image: "/images/extensions/extension_8.jpeg",
     description: "Safe and professional extension removal.",
-    category: "Extensions",
+    category: "Installations",
   },
 
   // --- Wigs ---
@@ -259,7 +259,7 @@ export const services: Service[] = [
     name: "Custom Wig Install",
     artist: "Liam Stylist",
     price: "$180",
-    image: "/images/wigs/wig_1.jpeg",
+    image: "/images/wigs/wig_7.jpeg",
     description: "Personalized wig installation for a natural look.",
     category: "Wigs",
   },

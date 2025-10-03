@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Bell, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { categories, services, topBookedServices } from "@/constants/services";
@@ -17,17 +17,34 @@ export default function HomePage() {
       : services.filter((s: Service) => s.category === activeCategory);
 
   // Animation variants
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
-
   const staggerContainer = {
-    hidden: { opacity: 1 },
+    hidden: { opacity: 0 },
     show: {
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
+        ease: "easeInOut" as const,
+      },
+    },
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut" as const },
+    },
+  };
+
+  // Scroll hint wiggle (runs once)
+  const scrollHint = {
+    hidden: { x: 0 },
+    show: {
+      x: [0, -20, 0], // wiggle left then back
+      transition: {
+        duration: 1,
+        ease: "easeInOut" as const,
       },
     },
   };
@@ -37,6 +54,7 @@ export default function HomePage() {
       className="px-4 pt-6 pb-20 overflow-y-auto h-full"
       initial="hidden"
       animate="show"
+      variants={staggerContainer}
     >
       {/* Header */}
       <motion.div
@@ -59,17 +77,15 @@ export default function HomePage() {
               <p className="font-bold text-lg">Good morning!</p>
             </div>
           </div>
-          <div className="relative p-2 bg-white rounded-full shadow">
-            <Bell className="w-5 h-5 text-gray-700" />
-            <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-          </div>
         </div>
       </motion.div>
 
       {/* Categories */}
       <motion.div
-        variants={staggerContainer}
-        className="flex space-x-4 overflow-x-auto mt-16 pb-2 no-scrollbar"
+        variants={scrollHint}
+        initial="hidden"
+        animate="show"
+        className="flex space-x-4 overflow-x-auto mt-16 pb-2 no-scrollbar snap-x snap-mandatory"
       >
         {categories.map((c: Category) => (
           <motion.button
@@ -79,7 +95,7 @@ export default function HomePage() {
             onClick={() => setActiveCategory(c.name)}
             className={`flex flex-col items-center ${
               activeCategory === c.name ? "bg-yellow-400" : "bg-white shadow-sm"
-            } rounded-2xl p-3 w-20 flex-shrink-0`}
+            } rounded-2xl p-3 w-20 flex-shrink-0 snap-start`}
           >
             <Image
               src={c.image}
@@ -100,7 +116,7 @@ export default function HomePage() {
       </motion.div>
 
       {/* Services */}
-      <div className="flex items-center justify-between mt-6">
+      <div className="flex items-center justify-between mt-4">
         <motion.h2 variants={fadeInUp} className="text-lg font-bold">
           {activeCategory === "All" ? "All Services" : activeCategory}
         </motion.h2>
@@ -113,7 +129,7 @@ export default function HomePage() {
 
       <motion.div
         variants={staggerContainer}
-        className="mt-3 grid grid-cols-2 gap-3"
+        className="mt-3 grid grid-cols-2 gap-3 no-scrollbar"
       >
         {filteredServices.map((s) => (
           <Link key={s.id} href={`/services/${s.id}`}>
