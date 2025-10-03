@@ -19,10 +19,19 @@ export default function ServiceDetailsPage() {
     );
   }
 
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" as const },
+    },
+  };
+
   return (
     <div className="flex justify-center items-center bg-gray-100 min-h-screen">
       <div className="relative w-full md:w-[390px] h-[844px] bg-white md:rounded-[2.5rem] md:shadow-2xl overflow-hidden">
-        {/* Hero Section (background) */}
+        {/* Hero Section */}
         <div className="fixed md:absolute top-0 left-0 right-0 h-120 z-0">
           <Image
             src={service.image}
@@ -38,11 +47,11 @@ export default function ServiceDetailsPage() {
               {service.price}
             </p>
           </div>
+
           <button
             onClick={() => router.back()}
             className="absolute top-4 left-4 bg-white/80 backdrop-blur-md p-2 rounded-full text-sm shadow"
           >
-            {/* ← Back */}
             <ArrowLeft className="w-5 h-5 text-gray-800" />
           </button>
           <button className="absolute top-4 right-4 bg-white/90 p-2 rounded-full shadow">
@@ -50,39 +59,46 @@ export default function ServiceDetailsPage() {
           </button>
         </div>
 
-        {/* Scrollable Card (slides over hero) */}
-        <div className="absolute top-54 bottom-0 left-0 right-0 z-10 overflow-y-auto">
-          <div className="bg-white rounded-t-3xl mt-56 p-6">
+        {/* Scrollable Sheet */}
+        <div className="absolute top-54 bottom-0 left-0 right-0 z-10 overflow-y-auto scroll-smooth">
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+            className="bg-white rounded-t-3xl mt-56 p-6"
+          >
             {/* Handle */}
             <div className="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mb-4" />
 
-            <h2 className="text-lg font-semibold text-gray-800">
-              About this service
-            </h2>
-            <p className="text-sm text-gray-600 mt-2 leading-relaxed">
-              {service.description}
-            </p>
+            <motion.div variants={fadeUp}>
+              <h2 className="text-lg font-semibold text-gray-800">
+                About this service
+              </h2>
+              <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+                {service.description}
+              </p>
+            </motion.div>
 
-            <div className="mt-6">
+            <motion.div variants={fadeUp} className="mt-6">
               <h3 className="text-base font-semibold text-gray-800">Artist</h3>
               <p className="text-sm text-gray-600 mt-1">{service.artist}</p>
-            </div>
+            </motion.div>
 
-            <div className="mt-6">
+            <motion.div variants={fadeUp} className="mt-6">
               <h3 className="text-base font-semibold text-gray-800">
                 Duration
               </h3>
-              <p className="text-sm text-gray-600 mt-1">{"45 minutes"}</p>
-            </div>
+              <p className="text-sm text-gray-600 mt-1">45 minutes</p>
+            </motion.div>
 
-            {/* Add filler so it can scroll */}
+            {/* Extra spacing for smooth scrolling */}
             <div className="h-40" />
-          </div>
+          </motion.div>
         </div>
 
         {/* Fixed Book Button */}
         <div className="fixed md:absolute bottom-0 left-0 right-0 px-4 py-3 bg-white border-t shadow-lg z-20">
-          <Link href="/services/1/providers">
+          <Link href={`/services/${service.id}/providers`}>
             <motion.div
               whileTap={{ scale: 0.97 }}
               className="w-full bg-orange-500 text-white text-center py-3 rounded-full font-medium text-lg shadow"
