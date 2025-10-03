@@ -15,7 +15,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 export default function BookNowPage() {
   const [filterOpen, setFilterOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("All");
+  const [category, setCategory] = useState("");
   const [filters, setFilters] = useState({
     priceRange: "Any",
     duration: "Any",
@@ -108,7 +108,7 @@ export default function BookNowPage() {
 
           <FeaturedOfferWrapper />
 
-          <ServiceList services={filteredServices} />
+          {category !== "" && <ServiceList services={filteredServices} />}
         </div>
 
         <FilterSheetWrapper
