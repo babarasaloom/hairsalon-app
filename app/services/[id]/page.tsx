@@ -1,16 +1,30 @@
 "use client";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { services } from "@/constants/services";
+import { categories, services } from "@/constants/services";
 import { motion } from "framer-motion";
 import { ArrowLeft, Heart } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function ServiceDetailsPage() {
   const { id } = useParams();
   const service = services.find((s) => s.id.toString() === id);
+  const searchParams = useSearchParams();
   const router = useRouter();
 
+  const [category, setCategory] = useState("");
+
+  useEffect(() => {
+    const categoryFromUrl = searchParams.get("category");
+    if (
+      categoryFromUrl &&
+      (categoryFromUrl === "All" ||
+        categories.some((c) => c.name === categoryFromUrl))
+    ) {
+      setCategory(categoryFromUrl);
+    }
+  }, [searchParams]);
   if (!service) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -98,7 +112,7 @@ export default function ServiceDetailsPage() {
 
         {/* Fixed Book Button */}
         <div className="fixed md:absolute bottom-0 left-0 right-0 px-4 py-3 bg-white border-t shadow-lg z-20">
-          <Link href={`/services/${service.id}/providers`}>
+          <Link href={`/artists?category=${category}`}>
             <motion.div
               whileTap={{ scale: 0.97 }}
               className="w-full bg-orange-500 text-white text-center py-3 rounded-full font-medium text-lg shadow"

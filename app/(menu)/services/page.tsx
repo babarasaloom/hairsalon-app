@@ -135,7 +135,7 @@ export default function HomePage() {
         className="mt-3 grid grid-cols-2 gap-3 no-scrollbar"
       >
         {filteredServices.map((s) => (
-          <Link key={s.id} href={`/services/${s.id}`}>
+          <Link key={s.id} href={`/services/${s.id}?category=${s.category}`}>
             <motion.div
               variants={fadeInUp}
               whileTap={{ scale: 0.98 }}
@@ -180,31 +180,33 @@ export default function HomePage() {
           className="flex space-x-4 overflow-x-auto pb-2 no-scrollbar"
         >
           {topBookedServices.map((s) => (
-            <motion.div
-              key={s.id}
-              variants={fadeInUp}
-              whileTap={{ scale: 0.98 }}
-              className="bg-white rounded-2xl shadow p-3 w-46 flex-shrink-0"
-            >
-              <div className="rounded-xl overflow-hidden h-36">
-                <Image
-                  src={s.image}
-                  alt={s.name}
-                  width={400}
-                  height={300}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="mt-3 flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium">{s.name}</p>
-                  <p className="text-sm text-gray-600">{s.price}</p>
+            <Link key={s.id} href={`/services/${s.id}?category=${s.category}`}>
+              <motion.div
+                key={s.id}
+                variants={fadeInUp}
+                whileTap={{ scale: 0.98 }}
+                className="bg-white rounded-2xl shadow p-3 w-46 flex-shrink-0"
+              >
+                <div className="rounded-xl overflow-hidden h-36">
+                  <Image
+                    src={s.image}
+                    alt={s.name}
+                    width={400}
+                    height={300}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
-                <button className="w-6 h-6 rounded-full bg-yellow-400 text-white flex items-center justify-center shadow">
-                  <ArrowRight size={20} />
-                </button>
-              </div>
-            </motion.div>
+                <div className="mt-3 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium">{s.name}</p>
+                    <p className="text-sm text-gray-600">{s.price}</p>
+                  </div>
+                  <button className="w-6 h-6 rounded-full bg-yellow-400 text-white flex items-center justify-center shadow">
+                    <ArrowRight size={20} />
+                  </button>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </motion.div>
       </motion.div>

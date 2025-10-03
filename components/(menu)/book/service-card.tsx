@@ -6,9 +6,15 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Service } from "@/definitions/services";
 
-export default function ServiceCard({ service }: { service: Service }) {
+export default function ServiceCard({
+  category,
+  service,
+}: {
+  category: string;
+  service: Service;
+}) {
   return (
-    <Link href={`/services/${service.id}`}>
+    <Link href={`/services/${service.id}?category=${category}`}>
       <motion.div
         whileTap={{ scale: 0.97 }}
         className="bg-white rounded-2xl shadow-sm p-3 flex gap-4 items-center cursor-pointer"
