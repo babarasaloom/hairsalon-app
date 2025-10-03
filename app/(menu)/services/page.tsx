@@ -121,7 +121,10 @@ export default function HomePage() {
           {activeCategory === "All" ? "All Services" : activeCategory}
         </motion.h2>
         <motion.div variants={fadeInUp}>
-          <Link href="/book" className="text-sm text-yellow-600 font-medium">
+          <Link
+            href={`/book?category=${activeCategory}`}
+            className="text-sm text-yellow-600 font-medium"
+          >
             See all
           </Link>
         </motion.div>
