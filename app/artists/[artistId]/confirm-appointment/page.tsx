@@ -66,7 +66,7 @@ export default function ConfirmAppointmentPage() {
           </div>
 
           {/* Confirm Button */}
-          <Link href="/services/1/providers/1/appointment-success">
+          <Link href="/artists/1/appointment-success">
             <motion.div
               whileTap={{ scale: 0.97 }}
               className="bg-yellow-400 rounded-2xl py-3 text-center font-medium text-white shadow-lg mb-8"
