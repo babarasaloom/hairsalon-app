@@ -19,7 +19,7 @@ export default function ViewAppointmentPage() {
     time: "11:30 - 12:30",
     price: "$25",
     location: "123 Main Street, Cape Town",
-    image: "/images/hairstyling/elise-wilcox.jpg",
+    image: "/images/hairstyle/elise-wilcox.jpg",
   };
 
   return (

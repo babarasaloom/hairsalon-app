@@ -27,7 +27,7 @@ export default function LoginPage() {
         {/* Hero Background */}
         <div className="absolute top-0 left-0 right-0 h-90 md:h-120">
           <Image
-            src="/images/hairstyling/good-faces.jpg" // Replace with your hero image
+            src="/images/hairstyle/good-faces.jpg" // Replace with your hero image
             alt="Login Hero"
             fill
             className="object-cover"

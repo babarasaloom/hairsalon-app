@@ -15,7 +15,7 @@ const mockFavorites = {
       artist: "John Doe",
       price: "$20",
       duration: "30 min",
-      image: "/images/hairstyling/joao-paulo-de-souza-oliveira.jpg",
+      image: "/images/hairstyle/joao-paulo-de-souza-oliveira.jpg",
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const mockFavorites = {
       artist: "Sarah Lee",
       price: "$50",
       duration: "1h",
-      image: "/images/hairstyling/justin-essah.jpg",
+      image: "/images/hairstyle/justin-essah.jpg",
     },
   ],
   stylists: [
@@ -37,7 +37,7 @@ const mockFavorites = {
       id: 2,
       name: "Maria Gomez",
       specialty: "Coloring Expert",
-      image: "/images/hairstyling/good-faces.jpg",
+      image: "/images/hairstyle/good-faces.jpg",
     },
   ],
 };

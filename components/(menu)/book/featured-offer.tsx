@@ -7,7 +7,7 @@ export default function FeaturedOffer() {
   return (
     <div className="relative mb-6 z-1">
       <Image
-        src="/images/hairstyling/good-faces.jpg"
+        src="/images/hairstyle/good-faces.jpg"
         alt="Featured Service"
         width={400}
         height={200}

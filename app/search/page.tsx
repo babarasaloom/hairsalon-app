@@ -24,7 +24,7 @@ const allServices = [
     category: "Haircut",
     price: "$20",
     duration: "30 min",
-    image: "/images/hairstyling/joao-paulo-de-souza-oliveira.jpg",
+    image: "/images/hairstyle/joao-paulo-de-souza-oliveira.jpg",
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const allServices = [
     category: "Coloring",
     price: "$45",
     duration: "1 hr",
-    image: "/images/hairstyling/alexander-mass.jpg",
+    image: "/images/hairstyle/alexander-mass.jpg",
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ const allServices = [
     category: "Styling",
     price: "$25",
     duration: "45 min",
-    image: "/images/hairstyling/good-faces.jpg",
+    image: "/images/hairstyle/good-faces.jpg",
   },
   {
     id: 4,
@@ -48,7 +48,7 @@ const allServices = [
     category: "Treatment",
     price: "$30",
     duration: "1 hr",
-    image: "/images/hairstyling/justin-essah.jpg",
+    image: "/images/hairstyle/justin-essah.jpg",
   },
 ];
 

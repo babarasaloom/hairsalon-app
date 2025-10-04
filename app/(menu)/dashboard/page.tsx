@@ -18,19 +18,19 @@ const services = [
     id: 1,
     name: "Men’s Haircut",
     price: "$25",
-    image: "/images/hairstyling/joao-paulo-de-souza-oliveira.jpg",
+    image: "/images/hairstyle/joao-paulo-de-souza-oliveira.jpg",
   },
   {
     id: 2,
     name: "Women’s Haircut",
     price: "$35",
-    image: "/images/hairstyling/justin-essah.jpg",
+    image: "/images/hairstyle/justin-essah.jpg",
   },
   {
     id: 3,
     name: "Beard Trim",
     price: "$15",
-    image: "/images/hairstyling/alexander-mass.jpg",
+    image: "/images/hairstyle/alexander-mass.jpg",
   },
 ];
 

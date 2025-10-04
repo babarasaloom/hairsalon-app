@@ -14,7 +14,7 @@ const mockUpcoming: Booking[] = [
     time: "11:30 - 12:30",
     price: "$25",
     location: "123 Main Street, Cape Town",
-    image: "/images/hairstyling/joao-paulo-de-souza-oliveira.jpg",
+    image: "/images/hairstyle/hairstyle_10.jpeg",
   },
 ];
 
@@ -26,7 +26,7 @@ const mockCancelled: Booking[] = [
     time: "09:00 - 09:30",
     price: "$15",
     location: "123 Main Street, Cape Town",
-    image: "/images/hairstyling/justin-essah.jpg",
+    image: "/images/hairstyle/hairstyle_11.jpeg",
   },
 ];
 
@@ -38,7 +38,7 @@ const mockHistory: Booking[] = [
     time: "14:00 - 15:00",
     price: "$30",
     location: "123 Main Street, Cape Town",
-    image: "/images/hairstyling/alexander-mass.jpg",
+    image: "/images/hairstyle/hairstyle_12.jpeg",
   },
 ];
 

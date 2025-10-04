@@ -14,7 +14,7 @@ const allOffers = [
     description: "Get a fresh haircut with 20% off this summer season.",
     discount: "20% OFF",
     valid: "Until Oct 30, 2025",
-    image: "/images/hairstyling/joao-paulo-de-souza-oliveira.jpg",
+    image: "/images/hairstyle/joao-paulo-de-souza-oliveira.jpg",
     saved: false,
   },
   {
@@ -34,7 +34,7 @@ const allOffers = [
     description: "Book a styling session this weekend & save $10.",
     discount: "SAVE $10",
     valid: "Until Oct 20, 2025",
-    image: "/images/hairstyling/good-faces.jpg",
+    image: "/images/hairstyle/good-faces.jpg",
     saved: false,
   },
 ];
@@ -53,14 +53,14 @@ const topServices = [
     name: "Women’s Coloring",
     price: "$45",
     duration: "1 hr",
-    image: "/images/hairstyling/joao-paulo-de-souza-oliveira.jpg",
+    image: "/images/hairstyle/joao-paulo-de-souza-oliveira.jpg",
   },
   {
     id: 3,
     name: "Blow Dry Styling",
     price: "$25",
     duration: "45 min",
-    image: "/images/hairstyling/good-faces.jpg",
+    image: "/images/hairstyle/good-faces.jpg",
   },
 ];
 
@@ -107,7 +107,7 @@ export default function OffersPage() {
             className="relative rounded-3xl overflow-hidden shadow-lg mb-6"
           >
             <Image
-              src="/images/hairstyling/justin-essah.jpg"
+              src="/images/hairstyle/justin-essah.jpg"
               alt="Hero Offer"
               width={400}
               height={200}
