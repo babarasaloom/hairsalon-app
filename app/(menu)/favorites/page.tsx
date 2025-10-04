@@ -31,7 +31,7 @@ const mockFavorites = {
       id: 1,
       name: "Richard Anderson",
       specialty: "Fade Specialist",
-      image: "/images/hairstyling/jessica-felicio.jpg",
+      image: "/images/hairstyle/jessica-felicio.jpg",
     },
     {
       id: 2,

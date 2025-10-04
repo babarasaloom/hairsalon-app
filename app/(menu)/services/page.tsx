@@ -65,7 +65,7 @@ export default function HomePage() {
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 flex items-center justify-center rounded-full overflow-hidden border border-gray-200">
               <Image
-                src="/images/hairstyling/jessica-felicio.jpg"
+                src="/images/hairstyle/jessica-felicio.jpg"
                 alt="Profile"
                 width={40}
                 height={40}

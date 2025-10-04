@@ -24,7 +24,7 @@ const allOffers = [
     description: "Transform your look with vibrant colors at 30% off.",
     discount: "30% OFF",
     valid: "Until Nov 15, 2025",
-    image: "/images/hairstyling/jessica-felicio.jpg",
+    image: "/images/hairstyle/jessica-felicio.jpg",
     saved: true,
   },
   {
@@ -46,7 +46,7 @@ const topServices = [
     name: "Men’s Haircut",
     price: "$20",
     duration: "30 min",
-    image: "/images/hairstyling/jessica-felicio.jpg",
+    image: "/images/hairstyle/jessica-felicio.jpg",
   },
   {
     id: 2,
