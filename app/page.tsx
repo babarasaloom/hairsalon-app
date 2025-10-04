@@ -12,7 +12,7 @@ export default function OnboardingPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/hairstyling/hairstyle/marlon-schmeiski.jpg"
+            src="/images/hairstyle/marlon-schmeiski.jpg"
             alt="Barber"
             fill
             priority
