@@ -5,11 +5,10 @@ import ServiceCard from "@/components/(menu)/book/service-card";
 import { Service } from "@/definitions/services";
 
 type Props = {
-  category: string;
   services: Service[];
 };
 
-export default function ServiceList({ category, services }: Props) {
+export default function ServiceList({ services }: Props) {
   const fadeVariants = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.3 } },
@@ -33,7 +32,7 @@ export default function ServiceList({ category, services }: Props) {
               animate="show"
               exit="hidden"
             >
-              <ServiceCard category={category} service={s} />
+              <ServiceCard service={s} />
             </motion.div>
           ))}
         </motion.div>
