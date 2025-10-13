@@ -13,6 +13,7 @@ import {
   Tag,
   Scissors,
   LogIn,
+  Users,
 } from "lucide-react";
 
 // Example: replace with your auth state hook
@@ -35,10 +36,17 @@ export default function BottomNav() {
       center: false,
     },
     {
-      id: "offers",
-      label: "Offers",
-      icon: <Tag />,
-      href: "/offers",
+      id: "search",
+      label: "Search",
+      icon: <Search />,
+      href: "/search",
+      center: false,
+    },
+    {
+      id: "artists",
+      label: "Artists",
+      icon: <Users />,
+      href: "/artists",
       center: false,
     },
     {
@@ -66,7 +74,6 @@ export default function BottomNav() {
       href: "/services",
       center: false,
     },
-
     {
       id: "favorites",
       label: "Favorites",
@@ -93,7 +100,7 @@ export default function BottomNav() {
   const tabs = isLoggedIn ? userTabs : guestTabs;
 
   return (
-    <div className="fixed md:absolute bottom-0 left-0 right-0 bg-white border-t flex justify-around items-center py-6 shadow-lg rounded-t-2xl z-50">
+    <div className="fixed md:absolute bottom-0 left-0 right-0 bg-white border-gray-300 border-t flex justify-around items-center py-6 shadow-lg rounded-t-2xl z-50">
       {tabs.map((tab) => (
         <Link key={tab.id} href={tab.href} onClick={() => setActive(tab.id)}>
           <motion.div
