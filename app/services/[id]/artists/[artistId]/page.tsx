@@ -1,6 +1,6 @@
 import { artists } from "@/constants/artists";
-import ArtistHero from "@/components/artists/[artistId]/artist-hero";
-import ArtistInfoSheet from "@/components/artists/[artistId]/artist-info-sheet";
+import ArtistHero from "@/components/services/[id]/artists/[artistId]/artist-hero";
+import ArtistInfoSheet from "@/components/services/[id]/artists/[artistId]/artist-info-sheet";
 
 export default async function BookingDetailsPage({
   params,

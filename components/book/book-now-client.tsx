@@ -39,7 +39,7 @@ export default function BookNowClient({
 
   const handleCategoryChange = (cat: string) => {
     setCategory(cat);
-    router.replace(`/book?category=${encodeURIComponent(cat)}`);
+    router.replace(`/search?category=${encodeURIComponent(cat)}`);
   };
 
   const filteredServices = useMemo(() => {

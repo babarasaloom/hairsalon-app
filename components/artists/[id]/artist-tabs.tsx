@@ -1,29 +1,13 @@
 import { AnimatePresence, motion } from "framer-motion";
-import BookingTabs from "@/components/artists/[artistId]/booking-tabs";
-import DateSelector from "@/components/artists/[artistId]/date-selector";
-import TimeSelector from "@/components/artists/[artistId]/time-selector";
-import AppointmentSummary from "@/components/artists/[artistId]/appointment-summary";
+import BookingTabs from "./booking-tabs";
 import { useState } from "react";
-import BookButton from "./book-button";
+import ArtistServices from "./artist-services";
 
-export default function ArtistTabs({ serviceId, artist }: any) {
-  const [selectedDate, setSelectedDate] = useState("15");
+export default function ArtistTabs({ artist }: any) {
   const [selectedTime, setSelectedTime] = useState("11:30");
-  const [activeTab, setActiveTab] = useState<"Booking" | "About" | "Reviews">(
-    "Booking"
+  const [activeTab, setActiveTab] = useState<"Services" | "About" | "Reviews">(
+    "Services"
   );
-
-  const dates = [
-    { day: "Sun", date: "12" },
-    { day: "Mon", date: "13" },
-    { day: "Tue", date: "14" },
-    { day: "Wed", date: "15" },
-    { day: "Thu", date: "16" },
-    { day: "Fri", date: "17" },
-    { day: "Sat", date: "18" },
-  ];
-
-  const times = ["10:30", "11:30", "12:30", "01:30", "02:30"];
 
   const reviews = [
     {
@@ -38,7 +22,7 @@ export default function ArtistTabs({ serviceId, artist }: any) {
 
       <div className="mt-6 min-h-[300px]">
         <AnimatePresence mode="wait">
-          {activeTab === "Booking" && (
+          {activeTab === "Services" && (
             <motion.div
               key="booking"
               initial={{ opacity: 0, y: 20 }}
@@ -46,17 +30,10 @@ export default function ArtistTabs({ serviceId, artist }: any) {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
             >
-              <DateSelector
-                dates={dates}
-                selectedDate={selectedDate}
-                onSelectDate={setSelectedDate}
-              />
-              <TimeSelector
-                times={times}
+              <ArtistServices
+                artistId={artist.id}
                 selectedTime={selectedTime}
-                onSelectTime={setSelectedTime}
               />
-              <AppointmentSummary selectedTime={selectedTime} />
             </motion.div>
           )}
 
@@ -112,9 +89,6 @@ export default function ArtistTabs({ serviceId, artist }: any) {
         </AnimatePresence>
       </div>
       <div className="h-40 md:h-20" />
-
-      {/* Fixed Book Button */}
-      {activeTab === "Booking" && <BookButton serviceId={serviceId} artistId={artist.id} />}
     </>
   );
 }
