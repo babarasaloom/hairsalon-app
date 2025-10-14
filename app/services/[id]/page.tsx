@@ -6,7 +6,7 @@ export default async function ServiceDetailsPage({
   searchParams,
 }: {
   params: Promise<{ id: string }>;
-  searchParams?: Promise<{ category?: string }>;
+  searchParams?: Promise<{ category?: string; artistId?: string }>;
 }) {
   const { id } = await params;
   const searchParamsObj = (await searchParams) || {};
@@ -16,6 +16,7 @@ export default async function ServiceDetailsPage({
     <ServiceDetailsClient
       service={service}
       category={searchParamsObj.category || ""}
+      artistId={searchParamsObj.artistId || ""}
       categories={categories}
     />
   );

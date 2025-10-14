@@ -17,12 +17,14 @@ interface ServiceDetailsClientProps {
     image: string;
   };
   category: string;
+  artistId: string;
   categories: { name: string }[];
 }
 
 export default function ServiceDetailsClient({
   service,
   category,
+  artistId,
   categories,
 }: ServiceDetailsClientProps) {
   const router = useRouter();
@@ -53,6 +55,10 @@ export default function ServiceDetailsClient({
       transition: { duration: 0.5, ease: "easeOut" as const },
     },
   };
+
+  let url = `/services/${service.id}/artists`;
+  if (artistId !== "") url += `/${artistId}`;
+  url += `?category=${activeCategory}`;
 
   return (
     <div className="flex justify-center items-center bg-gray-100 min-h-screen">
@@ -124,8 +130,8 @@ export default function ServiceDetailsClient({
         </div>
 
         {/* Fixed Book Button */}
-        <div className="fixed md:absolute bottom-0 left-0 right-0 px-4 py-3 bg-white border-t shadow-lg z-20">
-          <Link href={`/artists?category=${activeCategory}`}>
+        <div className="fixed md:absolute bottom-0 left-0 right-0 px-4 py-3 bg-white border-gray-300 border-t shadow-lg z-20">
+          <Link href={url}>
             <motion.div
               whileTap={{ scale: 0.97 }}
               className="w-full bg-orange-500 text-white text-center py-3 rounded-full font-medium text-lg shadow"
