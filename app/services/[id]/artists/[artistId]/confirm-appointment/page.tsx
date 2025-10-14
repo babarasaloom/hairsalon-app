@@ -1,6 +1,3 @@
-"use client";
-import Image from "next/image";
-import { motion } from "framer-motion";
 import {
   Bell,
   Scissors,
@@ -11,8 +8,15 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { services } from "@/constants/services";
+import { ConfirmButton, RecommendedLink } from "@/components/buttons";
 
-export default function ConfirmAppointmentPage() {
+export default async function ConfirmAppointmentPage({
+  params,
+}: {
+  params: Promise<{ id: string; artistId: string }>;
+}) {
+  const { id: serviceId, artistId } = await params;
+
   const booking = {
     service: "Men’s Haircut",
     provider: "Richard Anderson",
@@ -66,14 +70,7 @@ export default function ConfirmAppointmentPage() {
           </div>
 
           {/* Confirm Button */}
-          <Link href="/artists/1/appointment-success">
-            <motion.div
-              whileTap={{ scale: 0.97 }}
-              className="bg-yellow-400 rounded-2xl py-3 text-center font-medium text-white shadow-lg mb-8"
-            >
-              Confirm Appointment
-            </motion.div>
-          </Link>
+          <ConfirmButton {...{ serviceId, artistId }} />
 
           {/* Subtle Other Services */}
           <div className="flex items-center justify-between mb-3">
@@ -90,34 +87,7 @@ export default function ConfirmAppointmentPage() {
 
           <div className="flex flex-col gap-2">
             {recommended.map((s) => (
-              <Link key={s.id} href={`/services/${s.id}`}>
-                <motion.div
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-white rounded-xl shadow-sm flex items-center p-3"
-                >
-                  {/* Thumbnail */}
-                  <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
-                    <Image
-                      src={s.image}
-                      alt={s.name}
-                      width={64}
-                      height={64}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-
-                  {/* Details */}
-                  <div className="ml-3 flex-1">
-                    <p className="text-sm font-medium">{s.name}</p>
-                    <p className="text-xs text-gray-500">{s.price}</p>
-                  </div>
-
-                  {/* Action */}
-                  <button className="w-8 h-8 rounded-full bg-yellow-400 text-white flex items-center justify-center shadow">
-                    <ArrowRight size={16} />
-                  </button>
-                </motion.div>
-              </Link>
+              <RecommendedLink key={s.id} service={s} />
             ))}
           </div>
         </div>
