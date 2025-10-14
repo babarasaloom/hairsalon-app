@@ -2,10 +2,18 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function BookButton({ artistId }: { artistId: number }) {
+export default function BookButton({
+  serviceId,
+  artistId,
+}: {
+  serviceId: string;
+  artistId: number;
+}) {
   return (
     <div className="fixed md:absolute bottom-0 left-0 right-0 px-4 py-3 bg-white border-t border-gray-200 shadow-lg z-20">
-      <Link href={`/artists/${artistId}/confirm-appointment`}>
+      <Link
+        href={`/services/${serviceId}/artists/${artistId}/confirm-appointment`}
+      >
         <motion.div
           whileTap={{ scale: 0.97 }}
           whileHover={{ scale: 1.02 }}

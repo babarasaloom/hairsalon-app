@@ -5,8 +5,8 @@ import ActiveFilters from "@/components/book/active-filters";
 import FilterSheetWrapper from "@/components/book/filter-sheet-wrapper";
 import SearchInput from "@/components/(menu)/book/search-input";
 import ArtistList from "@/components/artists/artist-list";
-import { BackButton } from "@/components/buttons";
 import { useState, useMemo, useEffect } from "react";
+import { Users } from "lucide-react";
 
 type ArtistsClientProps = {
   initialCategory: string;
@@ -71,8 +71,14 @@ export default function ArtistsClient({
         <div className="px-4 pt-6 pb-24 overflow-y-auto h-full">
           {/* Header */}
           <div className="absolute top-0 left-0 right-0 bg-white flex flex-col gap-2 px-4 pt-4 pb-2 z-10">
-            <div className="flex items-center space-x-4">
-              <BackButton name={`${category} Artists`} />
+            <div className="flex items-center space-x-3">
+              <div className="p-2 rounded-full bg-white shadow">
+                <Users className="w-5 h-5 text-gray-600" />
+              </div>
+
+              <div className="flex items-center justify-center">
+                <p className="font-bold text-lg"> Artists</p>
+              </div>
             </div>
 
             <SearchInput

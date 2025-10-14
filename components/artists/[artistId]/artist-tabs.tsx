@@ -6,7 +6,7 @@ import AppointmentSummary from "@/components/artists/[artistId]/appointment-summ
 import { useState } from "react";
 import BookButton from "./book-button";
 
-export default function ArtistTabs({ artist }: any) {
+export default function ArtistTabs({ serviceId, artist }: any) {
   const [selectedDate, setSelectedDate] = useState("15");
   const [selectedTime, setSelectedTime] = useState("11:30");
   const [activeTab, setActiveTab] = useState<"Booking" | "About" | "Reviews">(
@@ -114,7 +114,7 @@ export default function ArtistTabs({ artist }: any) {
       <div className="h-40 md:h-20" />
 
       {/* Fixed Book Button */}
-      {activeTab === "Booking" && <BookButton artistId={artist.id} />}
+      {activeTab === "Booking" && <BookButton serviceId={serviceId} artistId={artist.id} />}
     </>
   );
 }

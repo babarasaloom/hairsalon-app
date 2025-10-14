@@ -1,8 +1,11 @@
 "use client";
 import Image from "next/image";
 import { ArrowLeft, Heart } from "lucide-react";
+import { useRouter } from "next/navigation";
 
-export default function ArtistHero({ artist, router }: any) {
+export default function ArtistHero({ artist }: any) {
+  const router = useRouter();
+
   return (
     <div className="fixed md:absolute top-0 left-0 right-0 h-90 md:h-110 z-0">
       <Image

@@ -2,11 +2,11 @@
 import { motion } from "framer-motion";
 import { useParams, useRouter } from "next/navigation";
 import { artists } from "@/constants/artists";
-import ArtistHero from "@/components/artists/[artistId]/artist-hero";
-import ArtistInfo from "@/components/artists/[artistId]/artist-info";
-import ArtistTabs from "@/components/artists/[artistId]/artist-tabs";
+import ArtistHero from "@/components/artists/info/artist-hero";
+import ArtistInfo from "@/components/artists/info/artist-info";
+import ArtistTabs from "@/components/artists/info/artist-tabs";
 
-export default function BookingDetailsPage() {
+export default function ArtistInfoPage() {
   const { artistId: id } = useParams();
   const router = useRouter();
   const artist = artists.find((a) => a.id.toString() === id);
