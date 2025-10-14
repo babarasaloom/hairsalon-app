@@ -1,128 +1,132 @@
 "use client";
-
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
-  Home,
   Search,
   Heart,
   Calendar,
   User2,
   BarChart3,
-  Tag,
   Scissors,
   LogIn,
   Users,
 } from "lucide-react";
+import { useState } from "react";
 
-// Example: replace with your auth state hook
+// Mock auth state (replace with your real auth hook)
 const useAuth = () => {
-  const [isLoggedIn] = useState(false); // mock: change to false to test guest
+  const [isLoggedIn] = useState(false); // change to true to test logged-in state
   return { isLoggedIn };
 };
 
 export default function BottomNav() {
   const { isLoggedIn } = useAuth();
-  const [active, setActive] = useState("home");
+  const pathname = usePathname();
 
-  // Tabs for logged out users
-  const guestTabs = [
+  type LucideIcon = typeof Search;
+  type Tab = {
+    id: string;
+    label: string;
+    icon: LucideIcon;
+    href: string;
+    center?: boolean;
+  };
+
+  // Tabs for guests
+  const guestTabs: Tab[] = [
     {
       id: "home",
       label: "Home",
-      icon: <Scissors />,
+      icon: Scissors,
       href: "/services",
-      center: false,
     },
     {
       id: "search",
       label: "Search",
-      icon: <Search />,
+      icon: Search,
       href: "/search",
-      center: false,
     },
     {
       id: "artists",
       label: "Artists",
-      icon: <Users />,
+      icon: Users,
       href: "/artists",
-      center: false,
     },
     {
       id: "login",
       label: "Login",
-      icon: <LogIn />,
+      icon: LogIn,
       href: "/login",
-      center: false,
     },
   ];
 
   // Tabs for logged in users
-  const userTabs = [
+  const userTabs: Tab[] = [
     {
       id: "dashboard",
       label: "Dashboard",
-      icon: <BarChart3 />,
+      icon: BarChart3,
       href: "/dashboard",
-      center: false,
     },
     {
       id: "home",
       label: "Home",
-      icon: <Scissors />,
+      icon: Scissors,
       href: "/services",
-      center: false,
     },
     {
       id: "favorites",
       label: "Favorites",
-      icon: <Heart />,
+      icon: Heart,
       href: "/favorites",
       center: true,
     },
     {
       id: "appointments",
       label: "Appointments",
-      icon: <Calendar />,
+      icon: Calendar,
       href: "/appointments",
-      center: false,
     },
     {
       id: "profile",
       label: "Profile",
-      icon: <User2 />,
+      icon: User2,
       href: "/profile",
-      center: false,
     },
   ];
 
   const tabs = isLoggedIn ? userTabs : guestTabs;
 
   return (
-    <div className="fixed md:absolute bottom-0 left-0 right-0 bg-white border-gray-300 border-t flex justify-around items-center py-6 shadow-lg rounded-t-2xl z-50">
-      {tabs.map((tab) => (
-        <Link key={tab.id} href={tab.href} onClick={() => setActive(tab.id)}>
-          <motion.div
-            whileTap={{ scale: 0.9 }}
-            className={`flex flex-col items-center ${
-              tab.center ? "p-3 bg-black rounded-full -mt-12" : "text-gray-400"
-            }`}
-          >
-            {tab.center ? (
-              <tab.icon.type className="w-6 h-6 text-white" />
-            ) : (
-              <tab.icon.type
-                className={`w-6 h-6 ${
-                  active === tab.id || tab.center
-                    ? "text-yellow-500"
-                    : "text-gray-400"
-                }`}
-              />
-            )}
-          </motion.div>
-        </Link>
-      ))}
+    <div className="fixed md:absolute bottom-0 left-0 right-0 bg-white border-t border-gray-300 flex justify-around items-center py-4 md:py-6 shadow-lg rounded-t-2xl z-50">
+      {tabs.map((tab) => {
+        const Icon = tab.icon;
+        const isActive = pathname === tab.href;
+
+        return (
+          <Link key={tab.id} href={tab.href}>
+            <motion.div
+              whileTap={{ scale: 0.9 }}
+              className={`flex flex-col items-center ${
+                tab.center
+                  ? "p-3 bg-black rounded-full -mt-12"
+                  : "text-gray-400"
+              }`}
+            >
+              {tab.center ? (
+                <Icon className="w-6 h-6 text-white" />
+              ) : (
+                <Icon
+                  className={`w-6 h-6 transition-colors duration-200 ${
+                    isActive ? "text-yellow-500" : "text-gray-400"
+                  }`}
+                />
+              )}
+            </motion.div>
+          </Link>
+        );
+      })}
     </div>
   );
 }
