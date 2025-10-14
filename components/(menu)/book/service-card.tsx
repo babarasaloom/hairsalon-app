@@ -13,9 +13,8 @@ export default function ServiceCard({
   artistId?: string;
   service: Service;
 }) {
-  let url = `/services/${service.id}/artists`;
-  if (artistId && artistId !== "") url += `/${artistId}`;
-  url += `?category=${service.category}`;
+  let url = `/services/${service.id}?category=${service.category}`;
+  if (artistId && artistId !== "") url += `&artistId=${artistId}`;
 
   return (
     <Link href={url}>

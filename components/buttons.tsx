@@ -54,7 +54,10 @@ export const ConfirmButton = ({
 
 export const RecommendedLink = ({ service }: { service: Service }) => {
   return (
-    <Link key={service.id} href={`/services/${service.id}`}>
+    <Link
+      key={service.id}
+      href={`/services/${service.id}?category=${service.category}`}
+    >
       <motion.div
         whileTap={{ scale: 0.98 }}
         className="bg-white rounded-xl shadow-sm flex items-center p-3"
