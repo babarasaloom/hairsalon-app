@@ -10,7 +10,7 @@ export default function ServiceCard({
   artistId,
   service,
 }: {
-  artistId: string;
+  artistId?: string;
   service: Service;
 }) {
   return (
