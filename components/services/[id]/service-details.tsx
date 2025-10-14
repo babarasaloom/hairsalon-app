@@ -57,7 +57,7 @@ export default function ServiceDetailsClient({
   };
 
   let url = `/services/${service.id}/artists`;
-  if (artistId !== "") url += `/${artistId}`;
+  if (artistId && artistId !== "") url += `/${artistId}`;
   url += `?category=${activeCategory}`;
 
   return (

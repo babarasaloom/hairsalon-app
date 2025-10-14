@@ -13,10 +13,12 @@ export default function ServiceCard({
   artistId?: string;
   service: Service;
 }) {
+  let url = `/services/${service.id}/artists`;
+  if (artistId && artistId !== "") url += `/${artistId}`;
+  url += `?category=${service.category}`;
+
   return (
-    <Link
-      href={`/services/${service.id}?category=${service.category}&artistId=${artistId}`}
-    >
+    <Link href={url}>
       <motion.div
         whileTap={{ scale: 0.97 }}
         className="bg-white rounded-2xl shadow-sm p-3 flex gap-4 items-center cursor-pointer"
