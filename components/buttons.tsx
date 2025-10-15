@@ -6,6 +6,47 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import Image from "next/image";
 import { Service } from "@/definitions/services";
+import { useBookingStore } from "@/store/booking";
+
+export default function BookButton({
+  serviceId,
+  artist,
+  selectedDate,
+  selectedTime,
+}: {
+  serviceId: string;
+  artist: any;
+  selectedDate: string;
+  selectedTime: string;
+}) {
+  const addBooking = useBookingStore((state) => state.addBooking);
+
+  const handleClick = () => {
+    addBooking({
+      serviceId,
+      artist,
+      selectedDate,
+      selectedTime,
+    });
+  };
+
+  return (
+    <div className="fixed md:absolute bottom-0 left-0 right-0 px-4 py-3 bg-white border-t border-gray-200 shadow-lg z-20">
+      <Link
+        href={`/services/${serviceId}/artists/${artist.id}/confirm-appointment`}
+        onClick={handleClick}
+      >
+        <motion.div
+          whileTap={{ scale: 0.97 }}
+          whileHover={{ scale: 1.02 }}
+          className="w-full bg-orange-500 text-white text-center py-3 rounded-full font-medium text-lg shadow transition"
+        >
+          Book Now
+        </motion.div>
+      </Link>
+    </div>
+  );
+}
 
 export const BackButton = ({ name }: { name: string }) => {
   const router = useRouter();

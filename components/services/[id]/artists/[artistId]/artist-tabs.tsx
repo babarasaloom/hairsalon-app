@@ -4,7 +4,7 @@ import DateSelector from "@/components/services/[id]/artists/[artistId]/date-sel
 import TimeSelector from "@/components/services/[id]/artists/[artistId]/time-selector";
 import AppointmentSummary from "@/components/services/[id]/artists/[artistId]/appointment-summary";
 import { useState } from "react";
-import BookButton from "./book-button";
+import BookButton from "@/components/buttons";
 
 export default function ArtistTabs({ serviceId, artist }: any) {
   const [selectedDate, setSelectedDate] = useState("15");
@@ -114,7 +114,14 @@ export default function ArtistTabs({ serviceId, artist }: any) {
       <div className="h-40 md:h-20" />
 
       {/* Fixed Book Button */}
-      {activeTab === "Booking" && <BookButton serviceId={serviceId} artistId={artist.id} />}
+      {activeTab === "Booking" && (
+        <BookButton
+          serviceId={serviceId}
+          artist={artist}
+          selectedDate={selectedDate}
+          selectedTime={selectedTime}
+        />
+      )}
     </>
   );
 }
