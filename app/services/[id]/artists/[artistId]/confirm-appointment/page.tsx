@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import { services } from "@/constants/services";
 import { ConfirmButton, RecommendedLink } from "@/components/buttons";
+import ServiceCard from "@/components/(menu)/book/service-card";
 
 export default async function ConfirmAppointmentPage({
   params,
@@ -87,7 +88,7 @@ export default async function ConfirmAppointmentPage({
 
           <div className="flex flex-col gap-2">
             {recommended.map((s) => (
-              <RecommendedLink key={s.id} service={s} />
+              <ServiceCard key={s.id} service={s} />
             ))}
           </div>
         </div>
