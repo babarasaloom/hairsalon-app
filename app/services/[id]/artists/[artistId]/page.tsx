@@ -4,14 +4,10 @@ import ArtistInfoSheet from "@/components/services/[id]/artists/[artistId]/artis
 
 export default async function BookingDetailsPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ id: string; artistId: string }>;
-  searchParams?: Promise<{ category?: string }>;
 }) {
   const { id: serviceId, artistId } = await params;
-  const searchParamsObj = await searchParams;
-  const category = searchParamsObj?.category || "All";
   const artist = artists.find((a) => a.id.toString() === artistId);
 
   if (!artist) {
