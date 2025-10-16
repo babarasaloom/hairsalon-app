@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Scissors, User, Calendar, Clock, Trash2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { ConfirmButton } from "@/components/buttons";
+import { ConfirmButton } from "@/components/ui/buttons";
 import ServiceCard from "@/components/(menu)/book/service-card";
 import { useBookingStore } from "@/store/booking";
 import { services } from "@/constants/services";

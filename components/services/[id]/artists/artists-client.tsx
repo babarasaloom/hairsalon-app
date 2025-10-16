@@ -5,7 +5,7 @@ import ActiveFilters from "@/components/book/active-filters";
 import FilterSheetWrapper from "@/components/book/filter-sheet-wrapper";
 import SearchInput from "@/components/(menu)/book/search-input";
 import ArtistList from "./artist-list";
-import { BackButton } from "@/components/buttons";
+import { BackButton } from "@/components/ui/buttons";
 import { useState, useMemo, useEffect } from "react";
 
 type ArtistsClientProps = {

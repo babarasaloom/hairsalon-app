@@ -4,7 +4,7 @@ import DateSelector from "@/components/services/[id]/artists/[artistId]/date-sel
 import TimeSelector from "@/components/services/[id]/artists/[artistId]/time-selector";
 import AppointmentSummary from "@/components/services/[id]/artists/[artistId]/appointment-summary";
 import { useState } from "react";
-import BookButton from "@/components/buttons";
+import BookButton from "@/components/ui/buttons";
 
 export default function ArtistTabs({ serviceId, artist }: any) {
   const [selectedDate, setSelectedDate] = useState("15");
