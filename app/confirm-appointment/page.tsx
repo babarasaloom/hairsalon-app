@@ -1,5 +1,7 @@
 import { services } from "@/constants/services";
-import ConfirmAppointmentClient from "@/components/services/[id]/artists/[artistId]/confirm-appointment-client";
+import ConfirmAppointmentClient from "@/components/confirm-appointment/client";
+import { getSessionUser } from "@/data/user";
+import { IUser } from "@/definitions/user";
 
 export default async function ConfirmAppointmentPage({
   params,
@@ -7,7 +9,7 @@ export default async function ConfirmAppointmentPage({
   params: Promise<{ id: string; artistId: string }>;
 }) {
   const { id: serviceId, artistId } = await params;
-
+  const user = (await getSessionUser()) as IUser;
   const service = services.find((s) => s.id.toString() === serviceId);
 
   return (
@@ -15,6 +17,7 @@ export default async function ConfirmAppointmentPage({
       serviceId={serviceId}
       artistId={artistId}
       service={service}
+      user={user}
     />
   );
 }

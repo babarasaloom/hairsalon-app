@@ -9,20 +9,26 @@ import ServiceCard from "@/components/(menu)/book/service-card";
 import { useBookingStore } from "@/store/booking";
 import { services } from "@/constants/services";
 import type { Service } from "@/definitions/services";
+import { IUser } from "@/definitions/user";
 
 type Props = {
   serviceId: string;
   artistId: string;
   service?: Service;
+  user: IUser;
 };
 
 export default function ConfirmAppointmentClient({
   serviceId,
   artistId,
   service,
+  user,
 }: Props) {
   const { bookings, removeBooking } = useBookingStore();
   const recommended: Service[] = services.slice(0, 3);
+  const bookingUrl = user
+    ? `/appointment-success`
+    : `/login?redirect=confirm-appointment`;
 
   return (
     <div className="flex justify-center items-center bg-gray-100 min-h-screen">
@@ -116,7 +122,7 @@ export default function ConfirmAppointmentClient({
           {/* Confirm Button */}
           {bookings.length > 0 && (
             <div className="mt-4">
-              <ConfirmButton {...{ serviceId, artistId }} />
+              <ConfirmButton url={bookingUrl} />
             </div>
           )}
 
