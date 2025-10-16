@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import LoginForm from "./form";
+import { Suspense } from "react";
 
 export default function LoginSheet() {
   return (
@@ -15,8 +16,9 @@ export default function LoginSheet() {
       <p className="text-sm text-gray-600 mb-6">
         Log in to access your appointments and profile
       </p>
-
-      <LoginForm />
+      <Suspense>
+        <LoginForm />
+      </Suspense>
     </motion.div>
   );
 }

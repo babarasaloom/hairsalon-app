@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import RegisterForm from "./form";
 import RegisterHeader from "./header";
+import { Suspense } from "react";
 
 export default function RegisterSheet() {
   return (
@@ -17,7 +18,9 @@ export default function RegisterSheet() {
       className="absolute bottom-0 left-0 right-0 z-10 bg-white rounded-t-3xl p-6"
     >
       <RegisterHeader />
-      <RegisterForm />
+      <Suspense>
+        <RegisterForm />
+      </Suspense>
     </motion.div>
   );
 }
