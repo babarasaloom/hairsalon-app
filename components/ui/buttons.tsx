@@ -32,10 +32,7 @@ export default function BookButton({
 
   return (
     <div className="fixed md:absolute bottom-0 left-0 right-0 px-4 py-3 bg-white border-t border-gray-200 shadow-lg z-20">
-      <Link
-        href={`/services/${serviceId}/artists/${artist.id}/confirm-appointment`}
-        onClick={handleClick}
-      >
+      <Link href={`/confirm-appointment`} onClick={handleClick}>
         <motion.div
           whileTap={{ scale: 0.97 }}
           whileHover={{ scale: 1.02 }}
@@ -72,17 +69,9 @@ export const BackButton = ({ name }: { name: string }) => {
   );
 };
 
-export const ConfirmButton = ({
-  serviceId,
-  artistId,
-}: {
-  serviceId: string;
-  artistId: string;
-}) => {
+export const ConfirmButton = ({ url }: { url: string }) => {
   return (
-    <Link
-      href={`/services/${serviceId}/artists/${artistId}/appointment-success`}
-    >
+    <Link href={url}>
       <motion.div
         whileTap={{ scale: 0.97 }}
         className="bg-yellow-400 rounded-2xl py-3 text-center font-medium text-white shadow-lg mb-8"
