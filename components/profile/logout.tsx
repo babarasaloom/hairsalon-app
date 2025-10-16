@@ -1,6 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { LogOut, X } from "lucide-react";
+import { useRef } from "react";
 
 type LogoutModalProps = {
   isOpen: boolean;
@@ -9,10 +10,20 @@ type LogoutModalProps = {
 };
 
 export function LogoutModal({ isOpen, onClose, onConfirm }: LogoutModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Close only if clicking the backdrop (not the modal sheet itself)
+    if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+      onClose();
+    }
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          onClick={handleBackdropClick}
           className="fixed inset-0 bg-black/50 z-50 flex justify-center items-end"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -20,11 +31,12 @@ export function LogoutModal({ isOpen, onClose, onConfirm }: LogoutModalProps) {
         >
           {/* Bottom Sheet */}
           <motion.div
+            ref={modalRef}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ type: "spring", stiffness: 200, damping: 25 }}
-            className="w-full md:w-[390px] bg-white rounded-t-3xl p-6 shadow-2xl"
+            className="w-full md:w-[390px] h-[300px] bg-white rounded-t-3xl p-6 shadow-2xl"
           >
             {/* Handle */}
             <div className="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mb-6" />

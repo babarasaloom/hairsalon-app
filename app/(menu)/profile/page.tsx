@@ -16,13 +16,13 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 import { LogoutModal } from "@/components/profile/logout";
+import { logoutSessionUser } from "@/actions/auth";
 
 export default function ProfilePage() {
   const [isLogoutOpen, setLogoutOpen] = useState(false);
 
   const handleConfirmLogout = async () => {
-    await fetch("/api/auth/logout", { method: "POST" });
-    window.location.href = "/login"; // redirect
+    await logoutSessionUser();
   };
 
   return (
@@ -118,17 +118,6 @@ export default function ProfilePage() {
               <span className="text-gray-400">›</span>
             </motion.div>
           </div>
-        </div>
-
-        {/* Bottom Navigation */}
-        <div className="fixed md:absolute bottom-0 left-0 right-0 bg-white border-t flex justify-around items-center py-6 shadow-lg rounded-t-2xl">
-          <Home className="w-6 h-6 text-yellow-500" />
-          <Search className="w-6 h-6 text-gray-400" />
-          <div className="p-3 bg-black rounded-full -mt-12">
-            <Heart className="w-6 h-6 text-white" />
-          </div>
-          <Calendar className="w-6 h-6 text-gray-400" />
-          <User2 className="w-6 h-6 text-gray-400" />
         </div>
       </div>
 
