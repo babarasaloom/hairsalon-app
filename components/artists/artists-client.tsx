@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { Users } from "lucide-react";
 import CategorySelector from "../book/category-selector";
 import { Category } from "@/definitions/services";
+import AppointmentsHeaderIcon from "@/components/ui/appointment-header-icon";
 
 type ArtistsClientProps = {
   initialCategory: string;
@@ -81,12 +82,17 @@ export default function ArtistsClient({
         <div className="px-4 pt-6 pb-24 overflow-y-auto h-full">
           {/* Header */}
           <div className="absolute top-0 left-0 right-0 bg-white flex flex-col gap-2 px-4 pt-4 pb-0 z-10">
-            <div className="flex items-center space-x-3">
-              <div className="p-2 rounded-full bg-white shadow">
-                <Users className="w-5 h-5 text-gray-600" />
+            <div className="flex justify-between items-center">
+              <div className="flex items-center space-x-3">
+                <div className="p-2 rounded-full bg-white shadow">
+                  <Users className="w-5 h-5 text-gray-600" />
+                </div>
+                <div className="flex items-center justify-center">
+                  <p className="font-bold text-lg"> Artists</p>
+                </div>
               </div>
-              <div className="flex items-center justify-center">
-                <p className="font-bold text-lg"> Artists</p>
+              <div className="flex items-center space-x-4">
+                <AppointmentsHeaderIcon />
               </div>
             </div>
 

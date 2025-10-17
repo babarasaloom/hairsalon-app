@@ -50,12 +50,6 @@ export default function BottomNav({ user }: { user: IUser }) {
       href: "/artists",
     },
     {
-      id: "confirm-appointments",
-      label: "Appointments",
-      icon: Calendar,
-      href: "/appointments",
-    },
-    {
       id: "login",
       label: "Login",
       icon: LogIn,
@@ -105,8 +99,6 @@ export default function BottomNav({ user }: { user: IUser }) {
       {tabs.map((tab) => {
         const Icon = tab.icon;
         const isActive = pathname === tab.href;
-        const isAppointmentTab =
-          tab.id === "appointments" || tab.id === "confirm-appointments";
 
         return (
           <Link key={tab.id} href={tab.href} className="relative">
@@ -126,13 +118,6 @@ export default function BottomNav({ user }: { user: IUser }) {
                     isActive ? "text-yellow-500" : "text-gray-400"
                   }`}
                 />
-              )}
-
-              {/* 🟡 Badge showing number of booked services */}
-              {isAppointmentTab && bookings.length > 0 && (
-                <span className="absolute -top-1 -right-2 bg-yellow-500 text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
-                  {bookings.length}
-                </span>
               )}
             </motion.div>
           </Link>

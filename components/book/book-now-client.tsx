@@ -6,11 +6,11 @@ import ServiceList from "@/components/book/service-list";
 import ActiveFilters from "@/components/book/active-filters";
 import FilterSheetWrapper from "@/components/book/filter-sheet-wrapper";
 import SearchInput from "@/components/(menu)/book/search-input";
-import { ArrowLeft, Search } from "lucide-react";
-import Link from "next/link";
+import { Search } from "lucide-react";
 import { useState, useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Category, Service } from "@/definitions/services";
+import AppointmentsHeaderIcon from "@/components/ui/appointment-header-icon";
 
 type BookNowClientProps = {
   initialCategory: string;
@@ -83,15 +83,14 @@ export default function BookNowClient({
         <div className="px-4 pt-6 pb-24 overflow-y-auto h-full">
           {/* Header */}
           <div className="absolute top-0 left-0 right-0 bg-white flex flex-col gap-2 px-4 pt-4 pb-0 z-10">
-            <div className="flex items-center space-x-2">
-              {/* <Link
-                href="/services"
-                className="p-2 rounded-full bg-white shadow"
-              >
-                <ArrowLeft className="w-5 h-5 text-gray-600" />
-              </Link> */}
-              <Search className="w-5 h-5 text-gray-600" />
-              <h1 className="text-xl font-bold text-gray-800">Search</h1>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center space-x-2">
+                <Search className="w-5 h-5 text-gray-600" />
+                <h1 className="text-xl font-bold text-gray-800">Search</h1>
+              </div>
+              <div className="flex items-center space-x-4">
+                <AppointmentsHeaderIcon />
+              </div>
             </div>
 
             <SearchInput

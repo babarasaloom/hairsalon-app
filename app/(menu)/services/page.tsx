@@ -7,6 +7,7 @@ import Link from "next/link";
 import { categories, services, topBookedServices } from "@/constants/services";
 import { Category, Service } from "@/definitions/services";
 import { useState } from "react";
+import AppointmentsHeaderIcon from "@/components/ui/appointment-header-icon";
 
 export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState("Hairstyling");
@@ -76,6 +77,9 @@ export default function HomePage() {
               <p className="text-gray-500 text-sm">Hello Smith</p>
               <p className="font-bold text-lg">Good morning!</p>
             </div>
+          </div>
+          <div className="flex items-center space-x-4">
+            <AppointmentsHeaderIcon />
           </div>
         </div>
       </motion.div>
